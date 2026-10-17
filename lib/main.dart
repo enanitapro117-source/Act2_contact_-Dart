@@ -1,7 +1,7 @@
 import 'dart:io';
 
 // El Aprendiz 2 definirá los atributos de esta clase
-class Contacto{
+class Contacto {
   String nombre;
   String telefono;
   Contacto(this.nombre, this.telefono);
@@ -25,6 +25,18 @@ void main() {
     switch (opcion) {
       case '1':
         // TODO: Aprendiz 1 - Implementar lógica para agregar
+        stdout.write('Ingrese el nombre del contacto: ');
+        String? nombre = stdin.readLineSync();
+
+        stdout.write('Ingrese el teléfono del contacto: ');
+        String? telefono = stdin.readLineSync();
+
+        if (nombre != null && nombre.isNotEmpty && telefono != null && telefono.isNotEmpty) {
+          agenda.add(Contacto(nombre, telefono));
+          print('¡Contacto agregado exitosamente!');
+        } else {
+          print('Error: El nombre y el teléfono no pueden estar vacíos.');
+        }
         break;
       case '2':
         // TODO: Aprendiz 2 - Implementar lógica para listar
